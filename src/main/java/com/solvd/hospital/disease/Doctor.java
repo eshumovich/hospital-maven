@@ -1,11 +1,14 @@
 package com.solvd.hospital.disease;
 
+import java.util.List;
+
 public class Doctor {
 
     private Long id;
     private String firstName;
     private String lastName;
     private String specification;
+    private List<Disease> diseases;
 
     public Long getId() {
         return id;
@@ -37,5 +40,13 @@ public class Doctor {
 
     public void setSpecification(String specification) {
         this.specification = specification;
+    }
+
+    public List<Disease> getDiseases() {
+        return diseases;
+    }
+
+    public void setDiseases(List<Disease> diseases) {
+        this.diseases = diseases;
     }
 }

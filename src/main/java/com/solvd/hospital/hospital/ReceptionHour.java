@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class ReceptionHour {
 
     private Long id;
-    private LocalDateTime reception;
+    private LocalDateTime receptionTime;
 
     public Long getId() {
         return id;
@@ -15,11 +15,11 @@ public class ReceptionHour {
         this.id = id;
     }
 
-    public LocalDateTime getReception() {
-        return reception;
+    public LocalDateTime getReceptionTime() {
+        return receptionTime;
     }
 
-    public void setReception(LocalDateTime reception) {
-        this.reception = reception;
+    public void setReceptionTime(LocalDateTime receptionTime) {
+        this.receptionTime = receptionTime;
     }
 }

@@ -6,8 +6,6 @@ public class Disease {
 
     private Long id;
     private String name;
-    private Department department;
-    private Doctor doctor;
     private BigDecimal price;
 
     public Long getId() {
@@ -24,22 +22,6 @@ public class Disease {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
     }
 
     public BigDecimal getPrice() {

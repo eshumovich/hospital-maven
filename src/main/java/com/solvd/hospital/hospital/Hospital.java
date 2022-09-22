@@ -1,8 +1,7 @@
 package com.solvd.hospital.hospital;
 
-import com.solvd.hospital.disease.Disease;
+import com.solvd.hospital.disease.Department;
 import com.solvd.hospital.human.Patient;
-import com.solvd.hospital.human.Employee;
 
 import java.util.List;
 
@@ -11,9 +10,8 @@ public class Hospital {
     private Long id;
     private String name;
     private HeadPhysician headPhysician;
-    private List<Disease> diseases;
+    private List<Department> departments;
     private List<Patient> patients;
-    private List<Employee> employees;
 
     public Long getId() {
         return id;
@@ -39,12 +37,12 @@ public class Hospital {
         this.headPhysician = headPhysician;
     }
 
-    public List<Disease> getDiseases() {
-        return diseases;
+    public List<Department> getDepartments() {
+        return departments;
     }
 
-    public void setDiseases(List<Disease> diseases) {
-        this.diseases = diseases;
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
     }
 
     public List<Patient> getPatients() {
@@ -54,12 +52,6 @@ public class Hospital {
     public void setPatients(List<Patient> patients) {
         this.patients = patients;
     }
-
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
 }
+
+

@@ -1,7 +1,6 @@
 package com.solvd.hospital.disease;
 
 import com.solvd.hospital.hospital.ReceptionHour;
-import com.solvd.hospital.human.Employee;
 
 import java.util.List;
 
@@ -9,7 +8,7 @@ public class Department {
 
     private Long id;
     private String name;
-    private List<Employee> employees;
+    private List<Doctor> doctors;
     private ReceptionHour receptionHour;
 
     public Long getId() {
@@ -28,12 +27,12 @@ public class Department {
         this.name = name;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
+    public List<Doctor> getDoctors() {
+        return doctors;
     }
 
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
     }
 
     public ReceptionHour getReceptionHour() {
@@ -44,5 +43,7 @@ public class Department {
         this.receptionHour = receptionHour;
     }
 }
+
+
 
 
