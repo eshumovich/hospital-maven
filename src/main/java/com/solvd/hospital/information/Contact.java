@@ -3,7 +3,7 @@ package com.solvd.hospital.information;
 public class Contact {
 
     private Long id;
-    private String password;
+    private String passport;
     private Integer phoneNumber;
 
     public Long getId() {
@@ -14,12 +14,12 @@ public class Contact {
         this.id = id;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassport() {
+        return passport;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassport(String passport) {
+        this.passport = passport;
     }
 
     public Integer getPhoneNumber() {

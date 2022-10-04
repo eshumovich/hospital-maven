@@ -2,6 +2,7 @@ package com.solvd.hospital.hospital;
 
 import com.solvd.hospital.disease.Department;
 import com.solvd.hospital.human.Patient;
+import com.solvd.hospital.information.Address;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class Hospital {
     private HeadPhysician headPhysician;
     private List<Department> departments;
     private List<Patient> patients;
+    private Address address;
 
     public Long getId() {
         return id;
@@ -51,6 +53,14 @@ public class Hospital {
 
     public void setPatients(List<Patient> patients) {
         this.patients = patients;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
 
