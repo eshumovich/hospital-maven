@@ -9,7 +9,7 @@ public class Department {
     private Long id;
     private String name;
     private List<Doctor> doctors;
-    private ReceptionHour receptionHour;
+    private List<ReceptionHour> receptionHours;
 
     public Long getId() {
         return id;
@@ -35,12 +35,12 @@ public class Department {
         this.doctors = doctors;
     }
 
-    public ReceptionHour getReceptionHour() {
-        return receptionHour;
+    public List<ReceptionHour> getReceptionHours() {
+        return receptionHours;
     }
 
-    public void setReceptionHour(ReceptionHour receptionHour) {
-        this.receptionHour = receptionHour;
+    public void setReceptionHours(List<ReceptionHour> receptionHours) {
+        this.receptionHours = receptionHours;
     }
 }
 
