@@ -1,29 +1,33 @@
 use hospitals_db;
 
-insert into hospitals(name) values ('An asylum'), ('Central Regional Hospital');
+insert into addresses(street, house_number) values ('Eastern', 123);
+insert into addresses(street, house_number) values ('Western', 543);
 
-insert into adresses(hospital_id, street, house_number) values (1, 'Eastern', 123);
+insert into head_physicians(first_name, last_name) values ('Doctor', 'Pattison');
+insert into head_physicians(first_name, last_name) values ('Dori', 'Shvimer');
 
-insert into patients(hospital_id, first_name, last_name, dob) values 
-	(1, 'John', 'Travolta', '1980-01-01'),
-	(1, 'Samanta', 'Fox', '1981-02-02'),
-	(1, 'Roberto', 'Carlos', '1982-03-03'),
-	(2, 'Daniel', 'Defo', '1983-04-04');
+insert into hospitals(address_id, head_physician_id, name) values (1, 1, 'An asylum'), (2, 2, 'Central Regional Hospital');
+
+insert into cards(number, registration) values
+	(101, '1998-01-01'),
+	(102, '2000-02-02'),
+	(103, '2000-03-03'),
+	(104, '2000-04-04');
+
+insert into contacts(passport, phone_number) values
+	('A', 2619049),
+	('B', 2617897),
+	('C', 2619525),
+	('D', 2614103);
+
+insert into patients(hospital_id, card_id, contact_id, first_name, last_name, dob) values 
+	(1, 1, 1, 'John', 'Travolta', '1980-01-01'),
+	(1, 2, 2, 'Samanta', 'Fox', '1981-02-02'),
+	(1, 3, 3, 'Roberto', 'Carlos', '1982-03-03'),
+	(2, 4, 4, 'Daniel', 'Defo', '1983-04-04');
     
--- remove patients with id more than 0
-delete from patients where id>0;   
-
-insert into cards(patient_id, number, registration) values
-	(9, 101, '1998-01-01'),
-	(10, 102, '2000-02-02'),
-	(11, 103, '2000-03-03'),
-	(12, 104, '2000-04-04');
-
-insert into contacts(patient_id, passport, phone_number) values
-	(9, 'A', 2619049),
-	(10, 'B', 2617897),
-	(11, 'C', 2619525),
-	(12, 'D', 2614103);
+    -- remove patients with id more than 0
+delete from patients where id>0;  
 
 insert into diseases(name, price) values ('runny nose', 10);
 insert into diseases(name, price) values ('injury', 15);
@@ -44,34 +48,40 @@ insert into doctors(department_id, first_name, last_name, specification) values
 	(2, 'Evgeny', 'Sablja', 'radiologist'),
 	(3, 'Artur', 'Pirogkov', 'dentist'),
 	(3, 'Semen', 'Lebedev', 'prosthetist');
-   
+    
 insert into doctor_diseases(doctor_id, disease_id) values 
-	(1, 3),
-	(2, 3),
-	(3, 4),
-	(4, 4),
-	(5, 5),
-	(6, 5);
-
+	(1, 1),
+	(2, 1),
+	(3, 2),
+	(4, 2),
+	(5, 3),
+	(6, 3);  
+    
 -- set new values
-update patients set last_name = 'Kalen' where id = 9;
-update patients set first_name = 'Brad' where id = 10;
-update patients set dob = '2010-05-05' where id = 12;
-update hospitals set name = 'Mental health' where id = 5;
-update hospitals set name = 'Physical health' where id = 6;
-update diseases set price = 18 where id = 4;
-update doctors set specification = 'therapist' where id = 2;
+update patients set last_name = 'Kalen' where id = 1;
+update patients set first_name = 'Brad' where id = 2;
+update patients set dob = '2010-05-05' where id = 4;
+update hospitals set name = 'Mental health' where id = 1;
+update hospitals set name = 'Physical health' where id = 2;
+update diseases set price = 18 where id = 3;
+update doctors set specification = 'therapist' where id = 3;
 update doctors set last_name = 'Li' where id = 1;
 update doctors set first_name = 'Lola' where id = 1;
-update cards set registration = '2015-03-03' where id = 4;
+update cards set registration = '2015-03-03' where id = 4;    
 
 -- select id, hospital id from patients
 select id, hospital_id from patients;
 
 -- select names, birthdays from patients
 select first_name, dob as date_of_birth from patients;
+
+insert into addresses(street, house_number) values ('Road 60', 7);
+insert into addresses(street, house_number) values ('Avenue', 124);
+
+insert into head_physicians(first_name, last_name) values ('Doctor', 'House');
+insert into head_physicians(first_name, last_name) values ('Walt', 'Jim');
     
-insert into hospitals(name) values ('number1'), ('number2');
+insert into hospitals(address_id, head_physician_id, name) values (3, 3, 'Number 1'), (4, 4, 'Number 2');
 
 -- join two tables
 select 
@@ -109,8 +119,8 @@ where doctors.first_name like '%n%' and doctors.department_id is not null;
 -- this query selects patients who's names contain n and sorts them by their birthdays
 select
 p.id as patient_id, p.first_name, p.last_name, p.dob as date_of_birth, 
-c.id as card_id, c.number, c.patient_id, c.registration
-from patients p left join cards c on c.patient_id = p.id
+c.id as card_id, c.number, c.registration
+from patients p left join cards c on p.card_id = c.id
 where p.first_name like '%n%' order by p.dob;
 
 select count(*) from patients where first_name like '%N%';
@@ -133,21 +143,3 @@ union select first_name, last_name from doctors;
 select first_name, last_name from patients
 union all select first_name, last_name from doctors
 order by last_name;
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
- 
